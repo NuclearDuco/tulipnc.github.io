@@ -149,6 +149,7 @@ footer {
 .house-photo {
   margin: 30px 0;
   text-align: center;
+  max-width: 100%;
 }
 
 .house-photo img {
@@ -157,6 +158,8 @@ footer {
   height: auto;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: block;
+  margin: 0 auto;
 }
 
 .house-photo-row {
