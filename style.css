@@ -2,7 +2,7 @@
 .image-container {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
   margin: 40px 0;
   flex-wrap: wrap;
 
@@ -17,8 +17,8 @@
 
 /* Make both images same size */
 .image-link img {
-  width: 420px;
-  height: 300px;
+  width: 520px;
+  height: 390px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
