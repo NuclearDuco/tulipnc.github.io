@@ -1,43 +1,38 @@
-body {
-    background-color: darkviolet;
-  }
-  
-  .image-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    gap: 20px;
-  }
-  
-  .image-link {
-    position: relative;
-    flex: 1;
-    text-decoration: none;
-    overflow: hidden;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-  }
-  
-  .image-link:hover {
-    transform: scale(1.05);
-  }
-  
-  .image-link img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .label {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 10px 20px;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 4px;
-  }
+/* Image grid */
+.image-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.image-link {
+  position: relative;     /* Needed for label overlay */
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+
+/* Make both images same size */
+.image-link img {
+  width: 350px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* Overlay label */
+.label {
+  position: absolute;
+  bottom: 10px;           /* Move slightly above bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  opacity: 0.85;
+}
