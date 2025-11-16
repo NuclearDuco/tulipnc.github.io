@@ -4,6 +4,8 @@
   justify-content: center;
   gap: 40px;
   margin: 40px 0;
+  flex-wrap: wrap;
+
 }
 
 .image-link {
@@ -15,8 +17,8 @@
 
 /* Make both images same size */
 .image-link img {
-  width: 350px;
-  height: 250px;
+  width: 420px;
+  height: 300px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
