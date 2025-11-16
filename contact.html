@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - TulipNC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul class="nav-tabs">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="house.html">HOUSE</a></li>
+        <li><a href="art.html">ART</a></li>
+        <li><a href="contact.html">OTHER</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-content">
+    <h1>Contact Us</h1>
+    <p class="contact-intro">Interested in renting our holiday house or purchasing a painting? Get in touch!</p>
+    
+    <div class="contact-form-container">
+      <form id="contactForm" action="https://formsubmit.co/ducoj@yahoo.com" method="POST">
+        
+        <!-- FormSubmit configuration -->
+        <input type="hidden" name="_subject" value="New TulipNC Contact Form Submission">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        
+        <!-- Interest Type -->
+        <div class="form-group">
+          <label for="interest">I am interested in:</label>
+          <select id="interest" name="interest" required>
+            <option value="">-- Select an option --</option>
+            <option value="House Rental">Renting the holiday house</option>
+            <option value="Art Purchase">Buying a painting</option>
+          </select>
+        </div>
+
+        <!-- Date selector (only shown for house rental) -->
+        <div class="form-group" id="dateGroup" style="display: none;">
+          <label for="dates">Preferred dates:</label>
+          <input type="text" id="dates" name="dates" placeholder="e.g., July 15-22, 2025">
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label for="message">Message (optional):</label>
+          <textarea id="message" name="message" rows="5" placeholder="Any additional information..."></textarea>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <p><strong>Or email us directly:</strong></p>
+      <p><a href="mailto:ducoj@yahoo.com">ducoj@yahoo.com</a></p>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 TulipNC</p>
+  </footer>
+
+  <script>
+    // Show/hide date field based on selection
+    document.getElementById('interest').addEventListener('change', function() {
+      const dateGroup = document.getElementById('dateGroup');
+      if (this.value === 'House Rental') {
+        dateGroup.style.display = 'block';
+      } else {
+        dateGroup.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
