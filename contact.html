@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
   <style>
-    /* Optionele styling: maak uitgeschakelde dagen lichtgrijs */
+    /* Disabled days lichtgrijs */
     .flatpickr-day.flatpickr-disabled {
       background: #f0f0f0 !important;
       color: #9b9b9b !important;
       cursor: not-allowed;
     }
 
-    /* Make the selected range look nicer (optioneel) */
+    /* Selected range styling */
     .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
       box-shadow: none;
       border-radius: 4px;
@@ -28,141 +28,133 @@
 </head>
 <body>
 
-  <header>
-    <nav>
-      <ul class="nav-tabs">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="house.html">HOUSE</a></li>
-        <li><a href="art.html">ART</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <nav>
+    <ul class="nav-tabs">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="house.html">HOUSE</a></li>
+      <li><a href="art.html">ART</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <main class="contact-content">
-    <h1>Contact Us</h1>
-    <p class="contact-intro">Interested in renting our holiday house or purchasing a painting? Get in touch!</p>
+<main class="contact-content">
+  <h1>Contact Us</h1>
+  <p class="contact-intro">Interested in renting our holiday house or purchasing a painting? Get in touch!</p>
 
-    <div class="contact-form-container">
-      <form id="contactForm" action="https://formsubmit.co/3e0e0177a2c135648d2e42e9e577585d" method="POST">
-        <!-- FormSubmit configuration -->
-        <input type="hidden" name="_subject" value="New TulipNC Contact Form Submission">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
+  <div class="contact-form-container">
+    <form id="contactForm" action="https://formsubmit.co/3e0e0177a2c135648d2e42e9e577585d" method="POST">
+      <!-- FormSubmit configuration -->
+      <input type="hidden" name="_subject" value="New TulipNC Contact Form Submission">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
 
-        <!-- Interest Type -->
-        <div class="form-group">
-          <label for="interest">I am interested in:</label>
-          <select id="interest" name="interest" required>
-            <option value="">-- Select an option --</option>
-            <option value="House Rental">Renting the holiday house</option>
-            <option value="Art Purchase">Buying a painting</option>
-          </select>
-        </div>
+      <!-- Interest Type -->
+      <div class="form-group">
+        <label for="interest">I am interested in:</label>
+        <select id="interest" name="interest" required>
+          <option value="">-- Select an option --</option>
+          <option value="House Rental">Renting the holiday house</option>
+          <option value="Art Purchase">Buying a painting</option>
+        </select>
+      </div>
 
-        <!-- Date selector (only shown for house rental) -->
-        <div class="form-group" id="dateGroup" style="display: none;">
-          <label for="dates">Preferred dates:</label>
-          <!-- Flatpickr zet hier de range in (Y-m-d → bijv. 2025-07-15 to 2025-07-22) -->
-          <input type="text" id="dates" name="dates" placeholder="Select arrival — departure" autocomplete="off">
-          <small id="dateHelp">Select arrival and departure. Bezette dagen zijn grijs.</small>
-        </div>
+      <!-- Date selector (only for house rental) -->
+      <div class="form-group" id="dateGroup" style="display: none;">
+        <label for="dates">Preferred dates:</label>
+        <input type="text" id="dates" name="dates" placeholder="Select arrival — departure" autocomplete="off">
+        <small id="dateHelp">Select arrival and departure. Bezette dagen zijn grijs.</small>
+      </div>
 
-        <!-- Name -->
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
 
-        <!-- Email -->
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
 
-        <!-- Message -->
-        <div class="form-group">
-          <label for="message">Message (optional):</label>
-          <textarea id="message" name="message" rows="5" placeholder="Any additional information..."></textarea>
-        </div>
+      <!-- Message -->
+      <div class="form-group">
+        <label for="message">Message (optional):</label>
+        <textarea id="message" name="message" rows="5" placeholder="Any additional information..."></textarea>
+      </div>
 
-        <!-- Submit button -->
-        <button type="submit" class="submit-btn">Send Message</button>
-      </form>
-    </div>
+      <!-- Submit button -->
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </div>
 
-    <div class="contact-info">
-      <p><strong>Or email us directly:</strong></p>
-      <p><a href="mailto:info@tulipnc.com">info@tulipnc.com</a></p>
-    </div>
-  </main>
+  <div class="contact-info">
+    <p><strong>Or email us directly:</strong></p>
+    <p><a href="mailto:info@tulipnc.com">info@tulipnc.com</a></p>
+  </div>
+</main>
 
-  <footer>
-    <p>&copy; 2025 TulipNC</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 TulipNC</p>
+</footer>
 
-  <!-- Flatpickr JS (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<!-- Flatpickr JS (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-  <script>
-    // ---- UI: show/hide date field based on selection and required attribute ----
-    const interestEl = document.getElementById('interest');
-    const dateGroup = document.getElementById('dateGroup');
-    const datesInput = document.getElementById('dates');
+<script>
+  // Show/hide date field based on interest selection
+  const interestEl = document.getElementById('interest');
+  const dateGroup = document.getElementById('dateGroup');
+  const datesInput = document.getElementById('dates');
 
-    interestEl.addEventListener('change', function() {
-      if (this.value === 'House Rental') {
-        dateGroup.style.display = 'block';
-        datesInput.setAttribute('required', 'required');
-      } else {
-        dateGroup.style.display = 'none';
-        datesInput.removeAttribute('required');
+  interestEl.addEventListener('change', function() {
+    if (this.value === 'House Rental') {
+      dateGroup.style.display = 'block';
+      datesInput.setAttribute('required', 'required');
+    } else {
+      dateGroup.style.display = 'none';
+      datesInput.removeAttribute('required');
+    }
+  });
+
+  // Load booked dates from JSON and init Flatpickr
+  async function initCalendar() {
+    const jsonPath = 'data/booked.json';
+    let disabledArr = [];
+
+    try {
+      const res = await fetch(jsonPath + '?v=' + Date.now());
+      if (!res.ok) throw new Error('Kon booked.json niet laden: ' + res.status);
+      const data = await res.json();
+      if (Array.isArray(data.disabled)) {
+        disabledArr = data.disabled;
       }
-    });
-
-    // ---- Load booked dates from JSON and initialize Flatpickr ----
-    async function initCalendar() {
-      // Pad van het JSON bestand in je repo
-      const jsonPath = 'data/booked.json';
-
-      let disabledArr = []; // flatpickr compatible array
-
-      try {
-        const res = await fetch(jsonPath, {cache: "no-store"});
-        if (!res.ok) throw new Error('Kon booked.json niet laden: ' + res.status);
-        const data = await res.json();
-
-        // Verwacht object: { "disabled": [ "2025-07-15", {"from":"2025-08-01","to":"2025-08-05"} ] }
-        if (Array.isArray(data.disabled)) {
-          // Map direct door (Flatpickr accepteert strings en range-objecten)
-          disabledArr = data.disabled;
-        }
-      } catch (err) {
-        console.warn('Error loading booked dates:', err);
-        // fallback: geen disabled data
-        disabledArr = [];
-      }
-
-      // Flatpickr initialisatie: range mode
-      flatpickr(datesInput, {
-        mode: "range",
-        dateFormat: "Y-m-d",        // formaat dat in FormSubmit terechtkomt en makkelijk is voor JSON
-        minDate: "today",
-        disable: disabledArr,
-        altInput: true,
-        altFormat: "j F, Y",       // leesbare weergave
-        allowInput: false,
-        onClose: function(selectedDates, dateStr, instance) {
-          // dateStr is e.g. "2025-07-15 to 2025-07-22" als range mode
-          // Als je liever 1 value wilt, kun je dat hier transformeren
-          // (FormSubmit stuurt sowieso de inhoud van het inputveld)
-        }
-      });
+    } catch (err) {
+      console.warn('Error loading booked dates:', err);
+      disabledArr = [];
     }
 
-    // Start de kalender
-    initCalendar();
-  </script>
+    // Flatpickr initialization
+    flatpickr(datesInput, {
+      mode: "range",
+      dateFormat: "Y-m-d", // Wordt verzonden naar FormSubmit
+      minDate: "today",
+      disable: disabledArr,
+      altInput: true,
+      altFormat: "j F, Y",
+      allowInput: false,
+      onClose: function(selectedDates, dateStr, instance) {
+        // Vul originele input value zodat FormSubmit de range ontvangt
+        datesInput.value = dateStr;
+      }
+    });
+  }
+
+  // Start calendar
+  initCalendar();
+</script>
 
 </body>
 </html>
