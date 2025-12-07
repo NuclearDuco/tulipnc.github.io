@@ -61,12 +61,13 @@
         </select>
       </div>
 
-      <!-- Date selector (only for house rental) -->
-      <div class="form-group" id="dateGroup" style="display: none;">
-        <label for="dates">Preferred dates:</label>
-        <input type="text" id="dates" name="dates" placeholder="Select arrival — departure" autocomplete="off">
-        <small id="dateHelp">Select arrival and departure. Bezette dagen zijn grijs.</small>
-      </div>
+    <!-- Date selector (only for house rental) -->
+<div class="form-group" id="dateGroup" style="display: none;">
+  <label for="datesDisplay">Preferred dates:</label>
+  <input type="text" id="datesDisplay" placeholder="Select arrival — departure" autocomplete="off">
+  <input type="hidden" id="dates" name="dates">
+  <small id="dateHelp">Select arrival and departure. Bezette dagen zijn grijs.</small>
+</div>
 
       <!-- Name -->
       <div class="form-group">
@@ -140,24 +141,23 @@
     // Flatpickr initialization
 
 
-    flatpickr(datesInput, {
+flatpickr('#datesDisplay', {
   mode: "range",
   dateFormat: "Y-m-d",
   minDate: "today",
   disable: disabledArr,
-  altInput: true,
-  altFormat: "j F, Y",
+  altInput: false, // Schakel alt input uit
   allowInput: false,
-  onClose: function(selectedDates, dateStr, instance) {
-    // Vul het originele input met een “schone” string
+  onChange: function(selectedDates, dateStr, instance) {
+    // Update het verborgen veld
     if (selectedDates.length === 2) {
       const start = instance.formatDate(selectedDates[0], "Y-m-d");
       const end = instance.formatDate(selectedDates[1], "Y-m-d");
-      datesInput.value = start + " to " + end; // FormSubmit kan dit verzenden
+      document.getElementById('dates').value = start + " to " + end;
     } else if (selectedDates.length === 1) {
-      datesInput.value = instance.formatDate(selectedDates[0], "Y-m-d");
+      document.getElementById('dates').value = instance.formatDate(selectedDates[0], "Y-m-d");
     } else {
-      datesInput.value = "";
+      document.getElementById('dates').value = "";
     }
   }
 });
