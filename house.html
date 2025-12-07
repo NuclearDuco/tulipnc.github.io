@@ -5,6 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Holiday House - TulipNC</title>
   <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Language selector */
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+    
+    .language-selector button {
+      background: none;
+      border: 2px solid transparent;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 5px;
+      transition: all 0.3s;
+      font-size: 32px;
+      line-height: 1;
+    }
+    
+    .language-selector button:hover {
+      transform: scale(1.1);
+      border-color: #3498db;
+    }
+    
+    .language-selector button.active {
+      border-color: #2c3e50;
+      background: rgba(52, 152, 219, 0.1);
+    }
+    
+    /* Make header position relative for absolute positioning of flags */
+    header {
+      position: relative;
+    }
+    
+    /* Booking CTA button */
+    .booking-cta {
+      text-align: center;
+      margin: 50px 0 30px 0;
+      padding: 40px 20px;
+    }
+    
+    .booking-button {
+      display: inline-block;
+      padding: 18px 50px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.3em;
+      font-weight: bold;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    }
+    
+    .booking-button:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    }
+  </style>
 </head>
 <body>
 
@@ -17,66 +81,71 @@
         <li><a href="contact.html">CONTACT&BOOK</a></li>
       </ul>
     </nav>
+    
+    <!-- Language selector with flags -->
+    <div class="language-selector">
+      <button onclick="setLanguage('en')" id="lang-en" title="English">🇬🇧</button>
+      <button onclick="setLanguage('nl')" id="lang-nl" title="Nederlands">🇳🇱</button>
+      <button onclick="setLanguage('fr')" id="lang-fr" title="Français">🇫🇷</button>
+    </div>
   </header>
 
   <main class="house-content">
-    <h1>Paradijselijk Vakantiehuis in de Lavendelvelden</h1>
+    <h1 data-translate="title">Paradise Holiday Home in the Lavender Fields</h1>
     
     <div class="house-intro">
-      <p>Welkom in dit natuurhuisje midden op het Plateau van Valensole. Met twee verdiepingen en prachtige tuin heeft dit vakantiehuis een geweldig uitzicht over de lavendelvelden en ligt vlakbij grote meren en toeristische attracties.</p>
+      <p data-translate="intro">Welcome to this nature cottage in the middle of the Valensole Plateau. With two floors and a beautiful garden, this holiday home has stunning views over the lavender fields and is close to large lakes and tourist attractions.</p>
     </div>
 
-    <!-- Add your main house exterior photo here -->
     <div class="house-photo">
-      <img src="house-exterior.jpg" alt="Vakantiehuis in lavendelvelden">
+      <img src="house-exterior.jpg" alt="Holiday house in lavender fields">
     </div>
 
     <div class="house-section">
-      <h2>Het Huis</h2>
-      <p>Het huisje bestaat uit een moderne keuken met vaatwasser en magnetron.  De knusse woonkamer heeft TV, slaapbank (2P), eettafel en piano. Op de eerste verdieping - bereikbaar binnen via een steilere en buiten via een brede trap - is een slaapkamer met één tweepersoons en een éénpersoonbed en een nieuwe badkamer.</p>
+      <h2 data-translate="house-title">The House</h2>
+      <p data-translate="house-desc">The cottage consists of a modern kitchen with dishwasher and microwave. The cozy living room has a TV, sofa bed (2P), dining table and piano. On the first floor - accessible inside via a steeper staircase and outside via a wide staircase - is a bedroom with one double and one single bed and a new bathroom.</p>
     </div>
 
-    <!-- Add kitchen/living room photos here -->
     <div class="house-photo-row">
-      <img src="kitchen.JPEG" alt="Moderne keuken">
-      <img src="living-room.JPEG" alt="Knusse woonkamer">
+      <img src="kitchen.JPEG" alt="Modern kitchen">
+      <img src="living-room.JPEG" alt="Cozy living room">
     </div>
 
-    <!-- Add bedroom/bathroom photos here -->
     <div class="house-photo-row">
-      <img src="bedroom.JPEG" alt="Slaapkamer">
-      <img src="bathroom.JPEG" alt="Badkamer">
+      <img src="bedroom.JPEG" alt="Bedroom">
+      <img src="bathroom.JPEG" alt="Bathroom">
     </div>
 
     <div class="house-section">
-      <h2>De Tuin</h2>
-      <p>Buiten in de grote tuin heb je de beschikking over tuinset, gasgestookte BBQ en picknicktafel. Dankzij de enorme kastanjeboom zit je ook in de zomer heerlijk koel achter het huis. In de tuin is er verder een tafeltennistafel, grote trampoline, badminton-net en diverse andere buiten-spellen.</p>
+      <h2 data-translate="garden-title">The Garden</h2>
+      <p data-translate="garden-desc">Outside in the large garden you have access to garden furniture, gas BBQ and picnic table. Thanks to the huge chestnut tree, you can enjoy the cool shade behind the house even in summer. The garden also features a table tennis table, large trampoline, badminton net and various other outdoor games.</p>
     </div>
 
-    <!-- Add garden photos here -->
     <div class="house-photo-row">
-      <img src="Garden1.JPEG" alt="Zicht op huisje met kastanjeboom">
-      <img src="Garden2.JPEG" alt="Ruime tuin met Trampoline">
+      <img src="Garden1.JPEG" alt="View of cottage with chestnut tree">
+      <img src="Garden2.JPEG" alt="Spacious garden with trampoline">
     </div>
 
     <div class="house-section">
-      <h2>De Omgeving</h2>
-      <p>Het huisje ligt vlakbij het bekende Gorges du Verdon en meer van St Croix waar je kunt raften, zeilen, kanoën of zwemmen. Het middeleeuwse dorpje Moustiers-Ste-Marie en de prachtige Luberon zijn zeer de moeite waard.</p>
+      <h2 data-translate="area-title">The Area</h2>
+      <p data-translate="area-desc">The cottage is located near the famous Gorges du Verdon and Lake St Croix where you can go rafting, sailing, canoeing or swimming. The medieval village of Moustiers-Ste-Marie and the beautiful Luberon are well worth a visit.</p>
     </div>
 
-    <!-- Add location/scenery photos here -->
     <div class="house-photo">
       <img src="sunset.JPEG" alt="Sunset">
     </div>
 
     <div class="house-section highlight">
-      <h2>Off-Grid & Duurzaam</h2>
-      <p>LET OP: Dit vakantiehuis is volledig off-grid: in plaats van aangesloten te zijn op het elektriciteitsnet, wordt het voorzien van energie door zonnepanelen. Dankzij de gunstige zonneligging is er ruim voldoende capaciteit voor het hele huis maar u ontvangt hiervoor extra informatie om te zorgen dat u altijd voldoende stroom heeft (ook voor (vaat)wasmahcine, stofzuiger en warm water). Een thuisbatterij systeem zorgen ervoor dat er ook 's nachts stroom is.</p>
+      <h2 data-translate="offgrid-title">Off-Grid & Sustainable</h2>
+      <p data-translate="offgrid-desc">PLEASE NOTE: This holiday home is completely off-grid: instead of being connected to the electricity grid, it is powered by solar panels. Thanks to the favorable sun exposure, there is ample capacity for the entire house, but you will receive additional information to ensure you always have enough power (including for the dishwasher, washing machine, vacuum cleaner and hot water). A home battery system ensures there is also power at night.</p>
     </div>
 
-    <!-- Add solar panels photo here -->
     <div class="house-photo">
-      <img src="roadview.JPEG" alt="roadview">
+      <img src="roadview.JPEG" alt="Road view">
+    </div>
+
+    <div class="booking-cta">
+      <a href="contact.html" class="booking-button" data-translate="booking-button">Book Your Stay</a>
     </div>
 
   </main>
@@ -84,6 +153,80 @@
   <footer>
     <p>&copy; 2025 TulipNC</p>
   </footer>
+
+  <script>
+    // Translation data
+    const translations = {
+      en: {
+        title: "Paradise Holiday Home in the Lavender Fields",
+        intro: "Welcome to this nature cottage in the middle of the Valensole Plateau. With two floors and a beautiful garden, this holiday home has stunning views over the lavender fields and is close to large lakes and tourist attractions.",
+        "house-title": "The House",
+        "house-desc": "The cottage consists of a modern kitchen with dishwasher and microwave. The cozy living room has a TV, sofa bed (2P), dining table and piano. On the first floor - accessible inside via a steeper staircase and outside via a wide staircase - is a bedroom with one double and one single bed and a new bathroom.",
+        "garden-title": "The Garden",
+        "garden-desc": "Outside in the large garden you have access to garden furniture, gas BBQ and picnic table. Thanks to the huge chestnut tree, you can enjoy the cool shade behind the house even in summer. The garden also features a table tennis table, large trampoline, badminton net and various other outdoor games.",
+        "area-title": "The Area",
+        "area-desc": "The cottage is located near the famous Gorges du Verdon and Lake St Croix where you can go rafting, sailing, canoeing or swimming. The medieval village of Moustiers-Ste-Marie and the beautiful Luberon are well worth a visit.",
+        "offgrid-title": "Off-Grid & Sustainable",
+        "offgrid-desc": "PLEASE NOTE: This holiday home is completely off-grid: instead of being connected to the electricity grid, it is powered by solar panels. Thanks to the favorable sun exposure, there is ample capacity for the entire house, but you will receive additional information to ensure you always have enough power (including for the dishwasher, washing machine, vacuum cleaner and hot water). A home battery system ensures there is also power at night.",
+        "booking-button": "Book Your Stay"
+      },
+      nl: {
+        title: "Paradijselijk Vakantiehuis in de Lavendelvelden",
+        intro: "Welkom in dit natuurhuisje midden op het Plateau van Valensole. Met twee verdiepingen en prachtige tuin heeft dit vakantiehuis een geweldig uitzicht over de lavendelvelden en ligt vlakbij grote meren en toeristische attracties.",
+        "house-title": "Het Huis",
+        "house-desc": "Het huisje bestaat uit een moderne keuken met vaatwasser en magnetron. De knusse woonkamer heeft TV, slaapbank (2P), eettafel en piano. Op de eerste verdieping - bereikbaar binnen via een steilere en buiten via een brede trap - is een slaapkamer met één tweepersoons en een éénpersoonbed en een nieuwe badkamer.",
+        "garden-title": "De Tuin",
+        "garden-desc": "Buiten in de grote tuin heb je de beschikking over tuinset, gasgestookte BBQ en picknicktafel. Dankzij de enorme kastanjeboom zit je ook in de zomer heerlijk koel achter het huis. In de tuin is er verder een tafeltennistafel, grote trampoline, badminton-net en diverse andere buiten-spellen.",
+        "area-title": "De Omgeving",
+        "area-desc": "Het huisje ligt vlakbij het bekende Gorges du Verdon en meer van St Croix waar je kunt raften, zeilen, kanoën of zwemmen. Het middeleeuwse dorpje Moustiers-Ste-Marie en de prachtige Luberon zijn zeer de moeite waard.",
+        "offgrid-title": "Off-Grid & Duurzaam",
+        "offgrid-desc": "LET OP: Dit vakantiehuis is volledig off-grid: in plaats van aangesloten te zijn op het elektriciteitsnet, wordt het voorzien van energie door zonnepanelen. Dankzij de gunstige zonneligging is er ruim voldoende capaciteit voor het hele huis maar u ontvangt hiervoor extra informatie om te zorgen dat u altijd voldoende stroom heeft (ook voor (vaat)wasmachine, stofzuiger en warm water). Een thuisbatterij systeem zorgen ervoor dat er ook 's nachts stroom is.",
+        "booking-button": "Boek Je Verblijf"
+      },
+      fr: {
+        title: "Maison de Vacances Paradisiaque dans les Champs de Lavande",
+        intro: "Bienvenue dans cette maison nature au milieu du Plateau de Valensole. Avec deux étages et un beau jardin, cette maison de vacances offre une vue magnifique sur les champs de lavande et se trouve à proximité de grands lacs et d'attractions touristiques.",
+        "house-title": "La Maison",
+        "house-desc": "La maison se compose d'une cuisine moderne avec lave-vaisselle et micro-ondes. Le salon confortable dispose d'une TV, d'un canapé-lit (2P), d'une table à manger et d'un piano. Au premier étage - accessible de l'intérieur par un escalier plus raide et de l'extérieur par un large escalier - se trouve une chambre avec un lit double et un lit simple ainsi qu'une nouvelle salle de bain.",
+        "garden-title": "Le Jardin",
+        "garden-desc": "À l'extérieur, dans le grand jardin, vous disposez d'un salon de jardin, d'un BBQ au gaz et d'une table de pique-nique. Grâce à l'énorme châtaignier, vous profitez d'une fraîcheur agréable derrière la maison même en été. Le jardin comprend également une table de ping-pong, un grand trampoline, un filet de badminton et divers autres jeux d'extérieur.",
+        "area-title": "La Région",
+        "area-desc": "La maison est située près des célèbres Gorges du Verdon et du lac de Sainte-Croix où vous pouvez faire du rafting, de la voile, du canoë ou de la natation. Le village médiéval de Moustiers-Sainte-Marie et le magnifique Luberon valent vraiment le détour.",
+        "offgrid-title": "Autonome & Durable",
+        "offgrid-desc": "ATTENTION : Cette maison de vacances est complètement autonome : au lieu d'être raccordée au réseau électrique, elle est alimentée par des panneaux solaires. Grâce à l'exposition solaire favorable, il y a une capacité largement suffisante pour toute la maison, mais vous recevrez des informations supplémentaires pour vous assurer d'avoir toujours assez d'électricité (y compris pour le lave-vaisselle, la machine à laver, l'aspirateur et l'eau chaude). Un système de batterie domestique garantit également l'alimentation électrique la nuit.",
+        "booking-button": "Réservez Votre Séjour"
+      }
+    };
+
+    // Get saved language or default to English
+    let currentLang = localStorage.getItem('houseLang') || 'en';
+
+    // Set language function
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('houseLang', lang);
+      
+      // Update all translatable elements
+      document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      
+      // Update active flag
+      document.querySelectorAll('.language-selector button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById('lang-' + lang).classList.add('active');
+      
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+    }
+
+    // Initialize on page load
+    setLanguage(currentLang);
+  </script>
 
 </body>
 </html>
