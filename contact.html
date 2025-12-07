@@ -24,35 +24,6 @@
       box-shadow: none;
       border-radius: 4px;
     }
-
-    /* Debug console styling */
-    #debugConsole {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #000;
-      color: #0f0;
-      padding: 15px;
-      border-radius: 8px;
-      max-width: 400px;
-      max-height: 300px;
-      overflow-y: auto;
-      font-family: monospace;
-      font-size: 12px;
-      z-index: 9999;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    #debugConsole div {
-      margin-bottom: 5px;
-      word-break: break-all;
-    }
-    .debug-header {
-      color: #ff0;
-      font-weight: bold;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #0f0;
-      padding-bottom: 5px;
-    }
   </style>
 </head>
 <body>
@@ -94,7 +65,7 @@
       <div class="form-group" id="dateGroup" style="display: none;">
         <label for="datesDisplay">Preferred dates:</label>
         <input type="text" id="datesDisplay" placeholder="Select arrival — departure" autocomplete="off">
-        <input type="hidden" id="dates" name="dates">
+        <input type="hidden" id="dates" name="dates" disabled>
         <small id="dateHelp">Select arrival and departure. Bezette dagen zijn grijs.</small>
       </div>
 
@@ -127,12 +98,6 @@
   </div>
 </main>
 
-<!-- Debug Console -->
-<div id="debugConsole">
-  <div class="debug-header">🔍 DEBUG CONSOLE</div>
-  <div id="debugOutput">Wacht op form submission...</div>
-</div>
-
 <footer>
   <p>&copy; 2025 TulipNC</p>
 </footer>
@@ -141,60 +106,21 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
-  // Debug console helper
-  function debugLog(message) {
-    const output = document.getElementById('debugOutput');
-    const div = document.createElement('div');
-    div.textContent = message;
-    output.appendChild(div);
-    console.log(message);
-  }
-
-  // TEST 1: Log form data voor verzending
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Voorkom verzending TIJDELIJK
-    
-    debugLog('=== FORM SUBMIT GEDETECTEERD ===');
-    
-    const formData = new FormData(this);
-    debugLog('--- Form Data: ---');
-    
-    let fieldCount = 0;
-    for (let [key, value] of formData.entries()) {
-      fieldCount++;
-      debugLog(key + ': ' + (value || '(leeg)'));
-    }
-    
-    debugLog('--- Totaal velden: ' + fieldCount + ' ---');
-    debugLog('');
-    debugLog('⚠️ Form wordt NIET verzonden (test mode)');
-    debugLog('Check de data hierboven!');
-    debugLog('');
-    debugLog('💡 Als alles OK lijkt, verwijder dan');
-    debugLog('   de e.preventDefault() regel');
-    
-    // UNCOMMENT DE VOLGENDE REGEL OM ECHT TE VERZENDEN:
-    // this.submit();
-  });
-
-  debugLog('✅ Debug script geladen');
-
   // Show/hide date field based on interest selection
   const interestEl = document.getElementById('interest');
   const dateGroup = document.getElementById('dateGroup');
   const datesInput = document.getElementById('dates');
 
   interestEl.addEventListener('change', function() {
-    debugLog('Interest gewijzigd naar: ' + this.value);
     if (this.value === 'House Rental') {
       dateGroup.style.display = 'block';
       datesInput.setAttribute('required', 'required');
-      debugLog('Date veld zichtbaar + required');
+      datesInput.removeAttribute('disabled');
     } else {
       dateGroup.style.display = 'none';
       datesInput.removeAttribute('required');
       datesInput.value = '';
-      debugLog('Date veld verborgen');
+      datesInput.setAttribute('disabled', 'disabled');
     }
   });
 
@@ -203,19 +129,15 @@
     const jsonPath = 'data/booked.json';
     let disabledArr = [];
 
-    debugLog('Laden booked.json...');
-
     try {
       const res = await fetch(jsonPath + '?v=' + Date.now());
       if (!res.ok) throw new Error('Kon booked.json niet laden: ' + res.status);
       const data = await res.json();
       if (Array.isArray(data.disabled)) {
         disabledArr = data.disabled;
-        debugLog('✅ ' + disabledArr.length + ' disabled dates geladen');
       }
     } catch (err) {
       console.warn('Error loading booked dates:', err);
-      debugLog('⚠️ Fout bij laden booked.json: ' + err.message);
       disabledArr = [];
     }
 
@@ -233,18 +155,13 @@
           const start = instance.formatDate(selectedDates[0], "Y-m-d");
           const end = instance.formatDate(selectedDates[1], "Y-m-d");
           document.getElementById('dates').value = start + " to " + end;
-          debugLog('Dates geselecteerd: ' + start + " to " + end);
         } else if (selectedDates.length === 1) {
           document.getElementById('dates').value = instance.formatDate(selectedDates[0], "Y-m-d");
-          debugLog('Enkele datum geselecteerd: ' + instance.formatDate(selectedDates[0], "Y-m-d"));
         } else {
           document.getElementById('dates').value = "";
-          debugLog('Dates gewist');
         }
       }
     });
-
-    debugLog('✅ Flatpickr geïnitialiseerd');
   }
 
   // Start calendar
