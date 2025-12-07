@@ -104,16 +104,6 @@
   <h1>Contact Us</h1>
   <p class="contact-intro">Interested in renting our holiday house or purchasing a painting? Get in touch!</p>
 
-  <!-- Success overlay -->
-  <div class="success-overlay" id="successOverlay">
-    <div class="success-message">
-      <div class="success-icon">✓</div>
-      <h2>Thank You!</h2>
-      <p>We have received your message and will contact you within 24 hours to confirm your booking.</p>
-      <p class="redirect-timer">Redirecting to homepage in <span id="countdown">10</span> seconds...</p>
-    </div>
-  </div>
-
   <div class="contact-form-container">
     <form id="contactForm" action="https://formspree.io/f/xvgebpyv" method="POST">
 
@@ -175,6 +165,14 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
+  // Check if form was successfully submitted
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success') === 'true') {
+    alert('Thank you! Your message has been sent successfully.');
+    // Clean URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+
   // Show/hide date field based on interest selection
   const interestEl = document.getElementById('interest');
   const dateGroup = document.getElementById('dateGroup');
@@ -214,7 +212,7 @@
         document.getElementById('successOverlay').classList.add('active');
         
         // Countdown and redirect
-        let seconds = 10;
+        let seconds = 5;
         const countdownEl = document.getElementById('countdown');
         const timer = setInterval(() => {
           seconds--;
