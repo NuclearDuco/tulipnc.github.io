@@ -1,96 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact - TulipNC</title>
+
+  <!-- Jouw site CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Flatpickr CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <style>
+    /* Disabled days lichtgrijs */
+    .flatpickr-day.flatpickr-disabled {
+      background: #f0f0f0 !important;
+      color: #9b9b9b !important;
+      cursor: not-allowed;
+    }
+
+    /* Selected range styling */
+    .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
+      box-shadow: none;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <nav>
-      <ul class="nav-tabs">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="house.html">HOUSE</a></li>
-        <li><a href="art.html">ART</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <nav>
+    <ul class="nav-tabs">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="house.html">HOUSE</a></li>
+      <li><a href="art.html">ART</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <main class="contact-content">
-    <h1>Contact Us</h1>
-    <p class="contact-intro">Interested in renting our holiday house or purchasing a painting? Get in touch!</p>
-    
-    <div class="contact-form-container">
-      <form id="contactForm" action="https://formsubmit.co/3e0e0177a2c135648d2e42e9e577585d" method="POST">
+<main class="contact-content">
+  <h1>Contact Us</h1>
+  <p class="contact-intro">Interested in renting our holiday house or purchasing a painting? Get in touch!</p>
+
+  <div class="contact-form-container">
+    <form id="contactForm" action="https://formspree.io/f/xvgebpyv" method="POST">
+
+      <!-- Formspree configuration -->
+      <input type="hidden" name="_subject" value="New TulipNC Contact Form Submission">
+      <input type="hidden" name="_next" value="https://tulipnc.com/contact.html?success=true">
+
+      <!-- Interest Type -->
+      <div class="form-group">
+        <label for="interest">I am interested in:</label>
+        <select id="interest" name="interest" required>
+          <option value="">-- Select an option --</option>
+          <option value="House Rental">Renting the holiday house</option>
+          <option value="Art Purchase">Buying a painting</option>
+        </select>
+      </div>
+
+      <!-- Date selector (only for house rental) -->
+      <div class="form-group" id="dateGroup" style="display: none;">
+        <label for="datesDisplay">Preferred dates:</label>
+        <input type="text" id="datesDisplay" placeholder="Select arrival — departure" autocomplete="off">
+        <small id="dateHelp">Select arrival and departure. Bezette dagen zijn grijs.</small>
+      </div>
+
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <!-- Message -->
+      <div class="form-group">
+        <label for="message">Message (optional):</label>
+        <textarea id="message" name="message" rows="5" placeholder="Any additional information..."></textarea>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </div>
+
+  <div class="contact-info">
+    <p><strong>Or email us directly:</strong></p>
+    <p><a href="mailto:info@tulipnc.com">info@tulipnc.com</a></p>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 TulipNC</p>
+</footer>
+
+<!-- Flatpickr JS (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+  // Check if form was successfully submitted
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success') === 'true') {
+    alert('Thank you! Your message has been sent successfully.');
+    // Clean URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+
+  // Show/hide date field based on interest selection
+  const interestEl = document.getElementById('interest');
+  const dateGroup = document.getElementById('dateGroup');
+  const datesDisplayInput = document.getElementById('datesDisplay');
+  const form = document.getElementById('contactForm');
+
+  interestEl.addEventListener('change', function() {
+    if (this.value === 'House Rental') {
+      dateGroup.style.display = 'block';
+    } else {
+      dateGroup.style.display = 'none';
+    }
+  });
+
+  // Load booked dates from JSON and init Flatpickr
+  async function initCalendar() {
+    const jsonPath = 'data/booked.json';
+    let disabledArr = [];
+
+    try {
+      const res = await fetch(jsonPath + '?v=' + Date.now());
+      if (!res.ok) throw new Error('Kon booked.json niet laden: ' + res.status);
+      const data = await res.json();
+      if (Array.isArray(data.disabled)) {
+        disabledArr = data.disabled;
+      }
+    } catch (err) {
+      console.warn('Error loading booked dates:', err);
+      disabledArr = [];
+    }
+
+    // Flatpickr initialization
+    flatpickr('#datesDisplay', {
+      mode: "range",
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      disable: disabledArr,
+      altInput: false,
+      allowInput: false,
+      onChange: function(selectedDates, dateStr, instance) {
+        // Create or update hidden input with dates for form submission
+        let datesHiddenInput = document.getElementById('dates');
         
-        <!-- FormSubmit configuration -->
-        <input type="hidden" name="_subject" value="New TulipNC Contact Form Submission">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
+        if (!datesHiddenInput) {
+          datesHiddenInput = document.createElement('input');
+          datesHiddenInput.type = 'hidden';
+          datesHiddenInput.id = 'dates';
+          datesHiddenInput.name = 'dates';
+          form.appendChild(datesHiddenInput);
+        }
         
-        <!-- Interest Type -->
-        <div class="form-group">
-          <label for="interest">I am interested in:</label>
-          <select id="interest" name="interest" required>
-            <option value="">-- Select an option --</option>
-            <option value="House Rental">Renting the holiday house</option>
-            <option value="Art Purchase">Buying a painting</option>
-          </select>
-        </div>
-
-        <!-- Date selector (only shown for house rental) -->
-        <div class="form-group" id="dateGroup" style="display: none;">
-          <label for="dates">Preferred dates:</label>
-          <input type="text" id="dates" name="dates" placeholder="e.g., July 15-22, 2025">
-        </div>
-
-        <!-- Name -->
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-
-        <!-- Email -->
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <!-- Message -->
-        <div class="form-group">
-          <label for="message">Message (optional):</label>
-          <textarea id="message" name="message" rows="5" placeholder="Any additional information..."></textarea>
-        </div>
-
-        <!-- Submit button -->
-        <button type="submit" class="submit-btn">Send Message</button>
-      </form>
-    </div>
-
-    <div class="contact-info">
-      <p><strong>Or email us directly:</strong></p>
-      <p><a href="mailto:info@tulipnc.com">info@tulipnc.com</a></p>
-    </div>
-  </main>
-  
-  <footer>
-    <p>&copy; 2025 TulipNC</p>
-  </footer>
-
-  <script>
-    // Show/hide date field based on selection
-    document.getElementById('interest').addEventListener('change', function() {
-      const dateGroup = document.getElementById('dateGroup');
-      if (this.value === 'House Rental') {
-        dateGroup.style.display = 'block';
-      } else {
-        dateGroup.style.display = 'none';
+        if (selectedDates.length === 2) {
+          const start = instance.formatDate(selectedDates[0], "Y-m-d");
+          const end = instance.formatDate(selectedDates[1], "Y-m-d");
+          datesHiddenInput.value = start + " to " + end;
+        } else if (selectedDates.length === 1) {
+          datesHiddenInput.value = instance.formatDate(selectedDates[0], "Y-m-d");
+        } else {
+          datesHiddenInput.value = "";
+        }
       }
     });
-  </script>
+  }
+
+  // Start calendar
+  initCalendar();
+</script>
 
 </body>
 </html>
