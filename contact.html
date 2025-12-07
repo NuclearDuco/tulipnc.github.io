@@ -24,6 +24,67 @@
       box-shadow: none;
       border-radius: 4px;
     }
+
+    /* Success message overlay */
+    .success-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .success-overlay.active {
+      display: flex;
+    }
+    
+    .success-message {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 500px;
+      animation: slideIn 0.5s ease;
+    }
+    
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .success-icon {
+      font-size: 60px;
+      color: #27ae60;
+      margin-bottom: 20px;
+    }
+    
+    .success-message h2 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+    
+    .success-message p {
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 25px;
+    }
+    
+    .redirect-timer {
+      font-size: 0.9em;
+      color: #888;
+      margin-top: 15px;
+    }
   </style>
 </head>
 <body>
@@ -147,8 +208,20 @@
       });
       
       if (response.ok) {
-        // Success! Redirect to thanks page
-        window.location.href = 'https://tulipnc.com/thanks.html';
+        // Show success overlay
+        document.getElementById('successOverlay').classList.add('active');
+        
+        // Countdown and redirect
+        let seconds = 5;
+        const countdownEl = document.getElementById('countdown');
+        const timer = setInterval(() => {
+          seconds--;
+          countdownEl.textContent = seconds;
+          if (seconds <= 0) {
+            clearInterval(timer);
+            window.location.href = 'index.html';
+          }
+        }, 1000);
       } else {
         alert('Oops! There was a problem submitting your form. Please try again or email us directly.');
         submitBtn.textContent = originalText;
