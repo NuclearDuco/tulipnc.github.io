@@ -10,7 +10,7 @@
     /* Language selector */
     .language-selector {
       position: absolute;
-      top: 20px;
+      top: 70px;
       right: 20px;
       display: flex;
       gap: 10px;
@@ -36,6 +36,13 @@
     .language-selector button.active {
       border-color: #2c3e50;
       background: rgba(52, 152, 219, 0.1);
+    }
+    
+    /* Desktop: move flags higher */
+    @media (min-width: 768px) {
+      .language-selector {
+        top: 20px;
+      }
     }
     
     /* Make header position relative for absolute positioning of flags */
@@ -84,9 +91,15 @@
     
     <!-- Language selector with flags -->
     <div class="language-selector">
-      <button onclick="setLanguage('en')" id="lang-en" title="English">🇬🇧</button>
-      <button onclick="setLanguage('nl')" id="lang-nl" title="Nederlands">🇳🇱</button>
-      <button onclick="setLanguage('fr')" id="lang-fr" title="Français">🇫🇷</button>
+      <button onclick="setLanguage('en')" id="lang-en" title="English">
+        <span style="font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;">🇬🇧</span>
+      </button>
+      <button onclick="setLanguage('nl')" id="lang-nl" title="Nederlands">
+        <span style="font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;">🇳🇱</span>
+      </button>
+      <button onclick="setLanguage('fr')" id="lang-fr" title="Français">
+        <span style="font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;">🇫🇷</span>
+      </button>
     </div>
   </header>
 
