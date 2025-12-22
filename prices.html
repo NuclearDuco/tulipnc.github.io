@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prices 2026 - TulipNC</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .prices-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .prices-content h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 40px;
+      font-size: 2.5em;
+    }
+    
+    .price-table-container {
+      overflow-x: auto;
+      margin-bottom: 40px;
+    }
+    
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .price-table th {
+      background-color: #8b0000;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .price-table td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .price-table tr:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .price-table .month-col {
+      font-weight: bold;
+      background-color: #f8f8f8;
+      text-align: left;
+      padding-left: 20px;
+    }
+    
+    .price-table .header-row th:first-child {
+      background-color: #5a2d5a;
+    }
+    
+    .cleaning-costs {
+      background-color: #f0f0f0;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+    
+    .cleaning-costs h2 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+    
+    .cleaning-costs ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .cleaning-costs li {
+      padding: 8px 0;
+      font-size: 1.1em;
+    }
+    
+    .back-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+      margin: 0 auto;
+      display: block;
+      width: fit-content;
+    }
+    
+    .back-button:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    }
+    
+    .note {
+      background-color: #f0f0f0;
+      border-left: 4px solid #888;
+      padding: 15px;
+      margin-bottom: 30px;
+      border-radius: 4px;
+    }
+    
+    .note p {
+      margin: 5px 0;
+      color: #333;
+    }
+    
+    @media (max-width: 768px) {
+      .price-table {
+        font-size: 0.85em;
+      }
+      
+      .price-table th, .price-table td {
+        padding: 8px 5px;
+      }
+      
+      .prices-content h1 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul class="nav-tabs">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="house.html">HOUSE</a></li>
+      <li><a href="art.html">ART</a></li>
+      <li><a href="contact.html">BOOK</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="prices-content">
+  <h1>PRICE LIST LAVENDER HOUSE 2026</h1>
+  
+  <div class="note">
+    <p><strong>Guest categories:</strong></p>
+    <p>• <strong>AIRBNB:</strong> Guests booking through Airbnb</p>
+    <p>• <strong>TULIPNC:</strong> Guests booking through this website</p>
+    <p style="margin-top: 10px;"><em>Prices per night in EUR</em></p>
+  </div>
+  
+  <div class="price-table-container">
+    <img src="prices2026.jpg" alt="Price List 2026" style="width: 100%; max-width: 800px; margin: 0 auto; display: block; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+  </div>
+  
+  <div class="cleaning-costs">
+    <h2>Cleaning Costs (CC)</h2>
+    <p><em>One-time payment regardless of duration of stay:</em></p>
+    <ul>
+      <li><strong>CC1:</strong> 60 euros</li>
+      <li><strong>CC2:</strong> 80 euros</li>
+    </ul>
+  </div>
+  
+  <a href="contact.html" class="back-button">← Back to Contact</a>
+</main>
+
+<footer>
+  <p>&copy; 2025 TulipNC</p>
+</footer>
+
+</body>
+</html>
