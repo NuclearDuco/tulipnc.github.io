@@ -38,6 +38,20 @@
       background: rgba(52, 152, 219, 0.1);
     }
     
+    /* Mobile: position flags below nav */
+    @media (max-width: 767px) {
+      .language-selector {
+        position: static;
+        justify-content: center;
+        padding: 10px 0;
+        border-top: 1px solid rgba(90, 45, 90, 0.2);
+      }
+      
+      .language-selector button {
+        font-size: 28px;
+      }
+    }
+    
     /* Desktop: move flags higher */
     @media (min-width: 768px) {
       .language-selector {
