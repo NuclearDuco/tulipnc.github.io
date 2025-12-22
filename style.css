@@ -8,12 +8,18 @@ body {
 
 /* Navigation */
 header {
-  padding: 20px;
+  padding: 8px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #e9d4ff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .nav-tabs {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   gap: 20px;
 }
@@ -21,12 +27,14 @@ header {
 .nav-tabs li a {
   text-decoration: none;
   font-weight: bold;
-  color: #4a0080;
+  color: #8b0000;
   transition: color 0.3s ease;
+  padding: 5px 0;
+  display: inline-block;
 }
 
 .nav-tabs li a:hover {
-  color: #7a00cc;
+  color: #a52a2a;
 }
 
 /* Main text */

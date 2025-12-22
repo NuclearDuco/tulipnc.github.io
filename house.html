@@ -10,7 +10,7 @@
     /* Language selector */
     .language-selector {
       position: absolute;
-      top: 70px;
+      top: 10px;
       right: 20px;
       display: flex;
       gap: 10px;
@@ -41,13 +41,138 @@
     /* Desktop: move flags higher */
     @media (min-width: 768px) {
       .language-selector {
-        top: 20px;
+        top: 10px;
       }
     }
     
     /* Make header position relative for absolute positioning of flags */
     header {
-      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #e9d4ff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 10px 20px;
+    }
+    
+    header nav {
+      margin: 0;
+    }
+    
+    .nav-tabs {
+      margin: 0;
+      padding: 5px 0;
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .nav-tabs li a {
+      color: #8b0000 !important;
+      padding: 8px 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    /* Sidebar Navigation */
+    .content-wrapper {
+      display: flex;
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .sidebar-nav {
+      width: 200px;
+      flex-shrink: 0;
+    }
+    
+    .sidebar-nav-sticky {
+      position: sticky;
+      top: 90px;
+    }
+    
+    .sidebar-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .sidebar-nav li {
+      margin-bottom: 15px;
+    }
+    
+    .sidebar-nav a {
+      display: block;
+      padding: 12px 20px;
+      padding-left: 10px;
+      color: #5a2d5a;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      transition: all 0.3s;
+      font-weight: bold;
+      font-style: italic;
+    }
+    
+    .sidebar-nav a:hover {
+      background-color: rgba(90, 45, 90, 0.1);
+      border-left-color: #5a2d5a;
+      padding-left: 15px;
+    }
+    
+    .sidebar-nav a.active {
+      background-color: rgba(90, 45, 90, 0.15);
+      border-left-color: #5a2d5a;
+      color: #5a2d5a;
+    }
+    
+    .main-content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    /* Section spacing */
+    .house-section {
+      scroll-margin-top: 20px;
+      margin-bottom: 50px;
+    }
+    
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+      }
+      
+      .sidebar-nav {
+        width: 100%;
+        order: -1;
+      }
+      
+      .sidebar-nav-sticky {
+        position: static;
+      }
+      
+      .sidebar-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .sidebar-nav li {
+        margin-bottom: 0;
+      }
+      
+      .sidebar-nav a {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        padding: 10px 15px;
+      }
+      
+      .sidebar-nav a:hover {
+        padding-left: 15px;
+        border-bottom-color: #3498db;
+      }
     }
     
     /* Booking CTA button */
@@ -103,65 +228,81 @@
     </div>
   </header>
 
-  <main class="house-content">
-    <h1 data-translate="title">Paradise Holiday Home in the Lavender Fields</h1>
-    
-    <div class="house-intro">
-      <p data-translate="intro">Welcome to this nature cottage in the middle of the Valensole Plateau. With two floors and a beautiful garden, this holiday home has stunning views over the lavender fields and is close to large lakes and tourist attractions.</p>
-    </div>
+  <div class="content-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar-nav">
+      <div class="sidebar-nav-sticky">
+        <ul>
+          <li><a href="#house-section" class="nav-link" data-translate="house-title">The House</a></li>
+          <li><a href="#garden-section" class="nav-link" data-translate="garden-title">The Garden</a></li>
+          <li><a href="#area-section" class="nav-link" data-translate="area-title">The Area</a></li>
+          <li><a href="#offgrid-section" class="nav-link" data-translate="offgrid-title">Off-Grid & Sustainable</a></li>
+          <li><a href="contact.html" class="nav-link nav-link-external" data-translate="booking-nav">Book Your Stay</a></li>
+        </ul>
+      </div>
+    </aside>
 
-    <div class="house-photo">
-      <img src="house-exterior.jpg" alt="Holiday house in lavender fields">
-    </div>
+    <!-- Main Content -->
+    <main class="main-content house-content">
+      <h1 data-translate="title">Paradise Holiday Home in the Lavender Fields</h1>
+      
+      <div class="house-intro">
+        <p data-translate="intro">Welcome to this nature cottage in the middle of the Valensole Plateau. With two floors and a beautiful garden, this holiday home has stunning views over the lavender fields and is close to large lakes and tourist attractions.</p>
+      </div>
 
-    <div class="house-section">
-      <h2 data-translate="house-title">The House</h2>
-      <p data-translate="house-desc">The cottage consists of a modern kitchen with dishwasher and microwave. The cozy living room has a TV, sofa bed (2P), dining table and piano. On the first floor - accessible inside via a steeper staircase and outside via a wide staircase - is a bedroom with one double and one single bed and a new bathroom.</p>
-    </div>
+      <div class="house-photo">
+        <img src="house-exterior.jpg" alt="Holiday house in lavender fields">
+      </div>
 
-    <div class="house-photo-row">
-      <img src="kitchen.JPEG" alt="Modern kitchen">
-      <img src="living-room.JPEG" alt="Cozy living room">
-    </div>
+      <div id="house-section" class="house-section">
+        <h2 data-translate="house-title">The House</h2>
+        <p data-translate="house-desc">The cottage consists of a modern kitchen with dishwasher and microwave. The cozy living room has a TV, sofa bed (2P), dining table and piano. On the first floor - accessible inside via a steeper staircase and outside via a wide staircase - is a bedroom with one double and one single bed and a new bathroom.</p>
+      </div>
 
-    <div class="house-photo-row">
-      <img src="bedroom.JPEG" alt="Bedroom">
-      <img src="bathroom.JPEG" alt="Bathroom">
-    </div>
+      <div class="house-photo-row">
+        <img src="kitchen.JPEG" alt="Modern kitchen">
+        <img src="living-room.JPEG" alt="Cozy living room">
+      </div>
 
-    <div class="house-section">
-      <h2 data-translate="garden-title">The Garden</h2>
-      <p data-translate="garden-desc">Outside in the large garden you have access to garden furniture, gas BBQ and picnic table. Thanks to the huge chestnut tree, you can enjoy the cool shade behind the house even in summer. The garden also features a table tennis table, large trampoline, badminton net and various other outdoor games.</p>
-    </div>
+      <div class="house-photo-row">
+        <img src="bedroom.JPEG" alt="Bedroom">
+        <img src="bathroom.JPEG" alt="Bathroom">
+      </div>
 
-    <div class="house-photo-row">
-      <img src="Garden1.JPEG" alt="View of cottage with chestnut tree">
-      <img src="Garden2.JPEG" alt="Spacious garden with trampoline">
-    </div>
+      <div id="garden-section" class="house-section">
+        <h2 data-translate="garden-title">The Garden</h2>
+        <p data-translate="garden-desc">Outside in the large garden you have access to garden furniture, gas BBQ and picnic table. Thanks to the huge chestnut tree, you can enjoy the cool shade behind the house even in summer. The garden also features a table tennis table, large trampoline, badminton net and various other outdoor games.</p>
+      </div>
 
-    <div class="house-section">
-      <h2 data-translate="area-title">The Area</h2>
-      <p data-translate="area-desc">The cottage is located near the famous Gorges du Verdon and Lake St Croix where you can go rafting, sailing, canoeing or swimming. The medieval village of Moustiers-Ste-Marie and the beautiful Luberon are well worth a visit.</p>
-    </div>
+      <div class="house-photo-row">
+        <img src="Garden1.JPEG" alt="View of cottage with chestnut tree">
+        <img src="Garden2.JPEG" alt="Spacious garden with trampoline">
+      </div>
 
-    <div class="house-photo">
-      <img src="sunset.JPEG" alt="Sunset">
-    </div>
+      <div id="area-section" class="house-section">
+        <h2 data-translate="area-title">The Area</h2>
+        <p data-translate="area-desc">The cottage is located near the famous Gorges du Verdon and Lake St Croix where you can go rafting, sailing, canoeing or swimming. The medieval village of Moustiers-Ste-Marie and the beautiful Luberon are well worth a visit.</p>
+      </div>
 
-    <div class="house-section highlight">
-      <h2 data-translate="offgrid-title">Off-Grid & Sustainable</h2>
-      <p data-translate="offgrid-desc">PLEASE NOTE: This holiday home is completely off-grid: instead of being connected to the electricity grid, it is powered by solar panels. Thanks to the favorable sun exposure, there is ample capacity for the entire house, but you will receive additional information to ensure you always have enough power (including for the dishwasher, washing machine, vacuum cleaner and hot water). A home battery system ensures there is also power at night.</p>
-    </div>
+      <div class="house-photo">
+        <img src="sunset.JPEG" alt="Sunset">
+      </div>
 
-    <div class="house-photo">
-      <img src="roadview.JPEG" alt="Road view">
-    </div>
+      <div id="offgrid-section" class="house-section highlight">
+        <h2 data-translate="offgrid-title">Off-Grid & Sustainable</h2>
+        <p data-translate="offgrid-desc">PLEASE NOTE: This holiday home is completely off-grid: instead of being connected to the electricity grid, it is powered by solar panels. Thanks to the favorable sun exposure, there is ample capacity for the entire house, but you will receive additional information to ensure you always have enough power (including for the dishwasher, washing machine, vacuum cleaner and hot water). A home battery system ensures there is also power at night.</p>
+      </div>
 
-    <div class="booking-cta">
-      <a href="contact.html" class="booking-button" data-translate="booking-button">Book Your Stay</a>
-    </div>
+      <div class="house-photo">
+        <img src="roadview.JPEG" alt="Road view">
+      </div>
 
-  </main>
+      <div id="booking-section" class="booking-cta">
+        <a href="contact.html" class="booking-button" data-translate="booking-button">Book Your Stay</a>
+      </div>
+
+    </main>
+  </div>
   
   <footer>
     <p>&copy; 2025 TulipNC</p>
@@ -181,7 +322,8 @@
         "area-desc": "The cottage is located near the famous Gorges du Verdon and Lake St Croix where you can go rafting, sailing, canoeing or swimming. The medieval village of Moustiers-Ste-Marie and the beautiful Luberon are well worth a visit.",
         "offgrid-title": "Off-Grid & Sustainable",
         "offgrid-desc": "PLEASE NOTE: This holiday home is completely off-grid: instead of being connected to the electricity grid, it is powered by solar panels. Thanks to the favorable sun exposure, there is ample capacity for the entire house, but you will receive additional information to ensure you always have enough power (including for the dishwasher, washing machine, vacuum cleaner and hot water). A home battery system ensures there is also power at night.",
-        "booking-button": "Book Your Stay"
+        "booking-button": "Book Your Stay",
+        "booking-nav": "Book Your Stay"
       },
       nl: {
         title: "Paradijselijk Vakantiehuis in de Lavendelvelden",
@@ -194,7 +336,8 @@
         "area-desc": "Het huisje ligt vlakbij het bekende Gorges du Verdon en meer van St Croix waar je kunt raften, zeilen, kanoën of zwemmen. Het middeleeuwse dorpje Moustiers-Ste-Marie en de prachtige Luberon zijn zeer de moeite waard.",
         "offgrid-title": "Off-Grid & Duurzaam",
         "offgrid-desc": "LET OP: Dit vakantiehuis is volledig off-grid: in plaats van aangesloten te zijn op het elektriciteitsnet, wordt het voorzien van energie door zonnepanelen. Dankzij de gunstige zonneligging is er ruim voldoende capaciteit voor het hele huis maar u ontvangt hiervoor extra informatie om te zorgen dat u altijd voldoende stroom heeft (ook voor (vaat)wasmachine, stofzuiger en warm water). Een thuisbatterij systeem zorgen ervoor dat er ook 's nachts stroom is.",
-        "booking-button": "Boek Je Verblijf"
+        "booking-button": "Boek Je Verblijf",
+        "booking-nav": "Boek Je Verblijf"
       },
       fr: {
         title: "Maison de Vacances Paradisiaque dans les Champs de Lavande",
@@ -207,7 +350,8 @@
         "area-desc": "La maison est située près des célèbres Gorges du Verdon et du lac de Sainte-Croix où vous pouvez faire du rafting, de la voile, du canoë ou de la natation. Le village médiéval de Moustiers-Sainte-Marie et le magnifique Luberon valent vraiment le détour.",
         "offgrid-title": "Autonome & Durable",
         "offgrid-desc": "ATTENTION : Cette maison de vacances est complètement autonome : au lieu d'être raccordée au réseau électrique, elle est alimentée par des panneaux solaires. Grâce à l'exposition solaire favorable, il y a une capacité largement suffisante pour toute la maison, mais vous recevrez des informations supplémentaires pour vous assurer d'avoir toujours assez d'électricité (y compris pour le lave-vaisselle, la machine à laver, l'aspirateur et l'eau chaude). Un système de batterie domestique garantit également l'alimentation électrique la nuit.",
-        "booking-button": "Réservez Votre Séjour"
+        "booking-button": "Réservez Votre Séjour",
+        "booking-nav": "Réservez Votre Séjour"
       }
     };
 
@@ -237,8 +381,46 @@
       document.documentElement.lang = lang;
     }
 
+    // Smooth scroll for navigation links
+    document.querySelectorAll('.sidebar-nav a:not(.nav-link-external)').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Highlight active section in navigation
+    const sections = document.querySelectorAll('.house-section[id]');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+    function highlightNavigation() {
+      let currentSection = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 100) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSection) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', highlightNavigation);
+
     // Initialize on page load
     setLanguage(currentLang);
+    highlightNavigation();
   </script>
 
 </body>
