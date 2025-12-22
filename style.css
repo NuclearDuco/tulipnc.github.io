@@ -359,3 +359,61 @@ footer {
     padding: 0 20px;
   }
 }
+
+/* ==============================
+   MOBILE FIXES (House page)
+   ============================== */
+
+/* Hide sidebar completely on mobile */
+@media (max-width: 768px) {
+  .sidebar-nav {
+    display: none !important;
+  }
+
+  .content-wrapper {
+    padding: 15px;
+  }
+}
+
+/* ==============================
+   LANGUAGE SELECTOR FIX
+   ============================== */
+
+/* Desktop: flags stay top-right */
+.language-selector {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1100;
+}
+
+/* Mobile: flags flow nicely under nav */
+@media (max-width: 768px) {
+  .language-selector {
+    position: static;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  header {
+    text-align: center;
+  }
+
+  .language-selector button {
+    font-size: 26px;
+  }
+}
+
+/* ==============================
+   HEADER NAV MOBILE POLISH
+   ============================== */
+
+@media (max-width: 768px) {
+  .nav-tabs {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
