@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Thuiszorg Dhr. A. Jansen — Blokkenoverzicht</title>
+<style>
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 24px;
+  }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 16px; color: #cccccc; font-weight: normal; margin-top: 0; }
+  p.intro { max-width: 900px; line-height: 1.5; color: #dddddd; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid #444444;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+  }
+  tr:nth-child(even) td { background-color: #0d0d0d; }
+  tr:nth-child(odd) td { background-color: #000000; }
+  td.weekend { background-color: #101820 !important; }
+  .na { color: #666666; font-style: italic; }
+  .gap { color: #999999; font-style: italic; }
+  .pgb { color: #7fd1ff; font-weight: bold; }
+  .red { color: #ff5555; font-weight: bold; }
+  .factuur { color: #aaaaaa; font-size: 11px; }
+  .handover { color: #ffd166; }
+  .legend {
+    margin-top: 24px;
+    padding: 12px 16px;
+    border: 1px solid #444444;
+    background-color: #111111;
+    max-width: 900px;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+  .legend span.red { margin-right: 6px; }
+  .legend span.pgb { margin-right: 6px; }
+  .legend span.handover { margin-right: 6px; }
+</style>
+</head>
+<body>
+
+<h1>Thuiszorg Dhr. A. Jansen — Blokkenoverzicht</h1>
+<h2>Per dag, per blok van 00:00–08:45 / 08:45–12:00 / 12:00–19:00 / 19:00–24:00 — vanaf 10-08-2026 12:00 (start zorg)</h2>
+
+<p class="intro">
+Automatiische controle van HERMES voor facturen Tiade. De facturen worden gecontroleerd op dubbelingen, PGB tijdslot en niet factureren tussen 08:45-12:00
+</p>
+
+
+<table>
+<thead>
+<tr>
+  <th>Datum</th>
+  <th>Dag</th>
+  <th>00:00 – 08:45</th>
+  <th>08:45 – 12:00</th>
+  <th>12:00 – 19:00</th>
+  <th>19:00 – 24:00</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td>10-08-2026</td><td>maandag</td>
+  <td class="na">— (vóór start zorg)</td>
+  <td class="na">— (vóór start zorg)</td>
+  <td>Evelyn Meertens <span class="pgb">(PGB)</span><br><span class="factuur">198676-0015</span></td>
+  <td>Evelyn Meertens (particuliere zorg, vanaf 19:00)<br><span class="factuur">198676-0014-11</span></td>
+</tr>
+
+<tr>
+  <td>11-08-2026</td><td>dinsdag</td>
+  <td>Evelyn Meertens (tot 08:45)<br><span class="factuur">198676-0014-11</span></td>
+  <td class="na">— (correct, geen factuur ma–vr)</td>
+  <td>Mercelien Jong <span class="pgb">(PGB)</span><br><span class="factuur">198358-0044</span></td>
+  <td>Mercelien Jong (vanaf 19:00)<br><span class="factuur">198358-0042</span></td>
+</tr>
+
+<tr>
+  <td>12-08-2026</td><td>woensdag</td>
+  <td>Mercelien Jong (tot 08:45)<br><span class="factuur">198358-0042</span></td>
+  <td class="na">—</td>
+  <td>Mercelien Jong <span class="pgb">(PGB)</span><br><span class="factuur">198358-0044</span></td>
+  <td>Mercelien Jong (vanaf 19:00)<br><span class="factuur">198358-0042</span></td>
+</tr>
+
+<tr>
+  <td>13-08-2026</td><td>donderdag</td>
+  <td>Mercelien Jong (tot 08:45)<br><span class="factuur">198358-0042</span></td>
+  <td class="red">DUBBEL GEFACTUREERD<br>Evelyn Meertens<br><span class="factuur">198676-0014-12</span> (normaal)<br>+ <span class="factuur">198676-0015 (PGB)</span></td>
+  <td class="gap">geen factuur gevonden</td>
+  <td class="gap">19:00–21:00 geen factuur<br>vanaf 21:00: Evelyn Meertens<br><span class="factuur">198676-0014-11</span></td>
+</tr>
+
+<tr>
+  <td>14-08-2026</td><td>vrijdag</td>
+  <td>Evelyn Meertens (tot 08:45)<br><span class="factuur">198676-0014-11</span></td>
+  <td class="red">GEFACTUREERD IN VERBODEN BLOK<br>Evelyn Meertens (inwerken 08:45–09:45)<br><span class="factuur">198676-0014-12</span></td>
+  <td>Nel van Gom <span class="pgb">(PGB)</span><br><span class="factuur">197798-0118</span></td>
+  <td>Nel van Gom<br><span class="factuur">197798-0116</span></td>
+</tr>
+
+<tr>
+  <td>15-08-2026</td><td>zaterdag</td>
+  <td class="weekend">Nel van Gom<br><span class="factuur">197798-0116</span></td>
+  <td class="weekend">Nel van Gom<br><span class="factuur">197798-0116</span></td>
+  <td class="weekend">Nel van Gom<br><span class="factuur">197798-0116</span></td>
+  <td class="weekend">Nel van Gom<br><span class="factuur">197798-0116</span></td>
+</tr>
+
+<tr>
+  <td>16-08-2026</td><td>zondag</td>
+  <td class="weekend">Nel van Gom<br><span class="factuur">197798-0116</span></td>
+  <td class="weekend">Nel van Gom<br><span class="factuur">197798-0116</span></td>
+  <td class="weekend">Nel van Gom<br><span class="factuur">197798-0116</span></td>
+  <td class="weekend">Nel van Gom<br><span class="factuur">197798-0116</span></td>
+</tr>
+
+<tr>
+  <td>17-08-2026</td><td>maandag</td>
+  <td>Nel van Gom (tot 08:45)<br><span class="factuur">197798-0116</span></td>
+  <td class="na">— (correct)</td>
+  <td>Mercelien Jong <span class="pgb">(PGB)</span><br><span class="factuur">198358-0044</span></td>
+  <td>Mercelien Jong (vanaf 19:00)<br><span class="factuur">198358-0042</span></td>
+</tr>
+
+<tr>
+  <td>18-08-2026</td><td>dinsdag</td>
+  <td>Mercelien Jong (tot 08:45)<br><span class="factuur">198358-0042</span></td>
+  <td class="na">—</td>
+  <td>Mercelien Jong <span class="pgb">(PGB)</span><br><span class="factuur">198358-0044</span></td>
+  <td>Mercelien Jong (vanaf 19:00)<br><span class="factuur">198358-0042</span></td>
+</tr>
+
+<tr>
+  <td>19-08-2026</td><td>woensdag</td>
+  <td>Mercelien Jong (tot 08:45)<br><span class="factuur">198358-0042</span></td>
+  <td class="na">—</td>
+  <td>Nel van Gom <span class="pgb">(PGB)</span><br><span class="factuur">197798-0118</span></td>
+  <td>Nel van Gom (vanaf 19:00)<br><span class="factuur">197798-0116</span></td>
+</tr>
+
+<tr>
+  <td>20-08-2026</td><td>donderdag</td>
+  <td>Nel van Gom (tot 08:45)<br><span class="factuur">197798-0116</span></td>
+  <td class="na">— (correct)</td>
+  <td>Evelyn Meertens <span class="pgb">(PGB)</span><br><span class="factuur">198676-0015</span></td>
+  <td>Evelyn Meertens (vanaf 19:00)<br><span class="factuur">198676-0014-11</span></td>
+</tr>
+
+<tr>
+  <td>21-08-2026</td><td>vrijdag</td>
+  <td>Evelyn Meertens (tot 08:45)<br><span class="factuur">198676-0014-11</span></td>
+  <td class="na">— (correct)</td>
+  <td class="handover">Evelyn Meertens <span class="pgb">(PGB)</span> 12:00–15:30<br><span class="factuur">198676-0015</span><br>+ Mercelien Jong <span class="pgb">(PGB)</span> 15:30–19:00<br><span class="factuur">198358-0044</span> *</td>
+  <td>Mercelien Jong (vanaf 19:00)<br><span class="factuur">198358-0043</span></td>
+</tr>
+
+<tr>
+  <td>22-08-2026</td><td>zaterdag</td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+</tr>
+
+<tr>
+  <td>23-08-2026</td><td>zondag</td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+</tr>
+
+<tr>
+  <td>24-08-2026</td><td>maandag</td>
+  <td>Mercelien Jong tot 07:30<br><span class="factuur">198358-0043</span><br>
+      <span class="red">+ vanaf 07:30 DUBBEL: Evelyn Meertens<br><span class="factuur">198676-0014-12</span> + <span class="factuur">198676-0015 (PGB)</span></span></td>
+  <td class="red">DUBBEL GEFACTUREERD (5,5 uur!)<br>Evelyn Meertens<br><span class="factuur">198676-0014-12</span> (normaal)<br>+ <span class="factuur">198676-0015 (PGB)</span></td>
+  <td><span class="red">tot 13:00 DUBBEL: Evelyn Meertens<br><span class="factuur">198676-0014-12</span> + <span class="factuur">198676-0015 (PGB)</span></span><br>
+      <span class="handover">+ Sherida Krind <span class="pgb">(PGB)</span> vanaf 12:15<br><span class="factuur">198173-0002</span> *</span></td>
+  <td>Sherida Krind (vanaf 19:00)<br><span class="factuur">198173-0001</span></td>
+</tr>
+
+<tr>
+  <td>25-08-2026</td><td>dinsdag</td>
+  <td>Sherida Krind (tot 08:45)<br><span class="factuur">198173-0001</span></td>
+  <td class="na">— (correct)</td>
+  <td>Sherida Krind <span class="pgb">(PGB)</span><br><span class="factuur">198173-0002</span></td>
+  <td>Sherida Krind (vanaf 19:00)<br><span class="factuur">198173-0001</span></td>
+</tr>
+
+<tr>
+  <td>26-08-2026</td><td>woensdag</td>
+  <td>Sherida Krind (tot 08:45)<br><span class="factuur">198173-0001</span></td>
+  <td class="na">— (correct)</td>
+  <td>Mercelien Jong <span class="pgb">(PGB)</span><br><span class="factuur">198358-0044</span></td>
+  <td>Mercelien Jong (vanaf 19:00)<br><span class="factuur">198358-0043</span></td>
+</tr>
+
+<tr>
+  <td>27-08-2026</td><td>donderdag</td>
+  <td>Mercelien Jong (tot 08:45)<br><span class="factuur">198358-0043</span></td>
+  <td class="na">— (correct)</td>
+  <td>Evelyn Meertens <span class="pgb">(PGB)</span><br><span class="factuur">198676-0015</span></td>
+  <td>Evelyn Meertens (vanaf 19:00)<br><span class="factuur">198676-0014-12</span></td>
+</tr>
+
+<tr>
+  <td>28-08-2026</td><td>vrijdag</td>
+  <td>Evelyn Meertens (tot 08:45)<br><span class="factuur">198676-0014-12</span></td>
+  <td class="red">GEFACTUREERD IN VERBODEN BLOK<br>Evelyn Meertens (inwerken 08:45–09:45)<br><span class="factuur">198676-0014-12</span></td>
+  <td>Hilda Meertens <span class="pgb">(PGB)</span><br><span class="factuur">236534-0101</span></td>
+  <td>Hilda Meertens (vanaf 19:00)<br><span class="factuur">236534-0100</span></td>
+</tr>
+
+<tr>
+  <td>29-08-2026</td><td>zaterdag</td>
+  <td class="weekend">Hilda Meertens<br><span class="factuur">236534-0100</span></td>
+  <td class="weekend">Hilda Meertens<br><span class="factuur">236534-0100</span></td>
+  <td class="weekend">Mercelien Jong (vanaf 12:00)<br><span class="factuur">198358-0043</span></td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+</tr>
+
+<tr>
+  <td>30-08-2026</td><td>zondag</td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+  <td class="weekend">Mercelien Jong<br><span class="factuur">198358-0043</span></td>
+</tr>
+
+<tr>
+  <td>31-08-2026</td><td>maandag</td>
+  <td>Mercelien Jong (tot 08:45)<br><span class="factuur">198358-0043</span></td>
+  <td class="na">— (correct)</td>
+  <td>Evelyn Meertens <span class="pgb">(PGB)</span><br><span class="factuur">198676-0015</span></td>
+  <td>Evelyn Meertens (vanaf 19:00)<br><span class="factuur">198676-0016</span></td>
+</tr>
+
+<tr>
+  <td>01-09-2026</td><td>dinsdag</td>
+  <td>Evelyn Meertens (tot 08:45)<br><span class="factuur">198676-0016</span></td>
+  <td class="na">— (correct)</td>
+  <td class="gap">geen factuur gevonden</td>
+  <td>Mercelien Jong (vanaf 19:00)<br><span class="factuur">198358-0045</span></td>
+</tr>
+
+<tr>
+  <td>02-09-2026</td><td>woensdag</td>
+  <td>Mercelien Jong (tot 08:45)<br><span class="factuur">198358-0045</span></td>
+  <td class="na">— (correct)</td>
+  <td class="gap">geen factuur gevonden</td>
+  <td>Mercelien Jong (vanaf 19:00)<br><span class="factuur">198358-0045</span></td>
+</tr>
+
+<tr>
+  <td>03-09-2026</td><td>donderdag</td>
+  <td>Mercelien Jong (tot 08:45)<br><span class="factuur">198358-0045</span></td>
+  <td class="na">— (correct)</td>
+  <td class="gap">geen factuur gevonden</td>
+  <td>Carmelita Warnert (vanaf 19:00)<br><span class="factuur">198431-0041</span></td>
+</tr>
+
+<tr>
+  <td>04-09-2026</td><td>vrijdag</td>
+  <td>Carmelita Warnert (tot 08:45)<br><span class="factuur">198431-0041</span></td>
+  <td class="na">— (correct)</td>
+  <td class="gap">geen factuur gevonden</td>
+  <td>Carmelita Warnert (vanaf 19:00)<br><span class="factuur">198431-0041</span></td>
+</tr>
+
+<tr>
+  <td>05-09-2026</td><td>zaterdag</td>
+  <td class="weekend">Carmelita Warnert<br><span class="factuur">198431-0041</span></td>
+  <td class="weekend">Carmelita Warnert<br><span class="factuur">198431-0041</span></td>
+  <td class="weekend">Carmelita Warnert (vanaf 12:00)<br><span class="factuur">198431-0041</span></td>
+  <td class="weekend">Carmelita Warnert<br><span class="factuur">198431-0041</span></td>
+</tr>
+
+<tr>
+  <td>06-09-2026</td><td>zondag</td>
+  <td class="weekend">Carmelita Warnert<br><span class="factuur">198431-0041</span></td>
+  <td class="weekend">Carmelita Warnert<br><span class="factuur">198431-0041</span></td>
+  <td class="weekend">Nel van Gom (vanaf 12:00)<br><span class="factuur">197798-0119</span></td>
+  <td class="weekend">Nel van Gom<br><span class="factuur">197798-0119</span></td>
+</tr>
+
+<tr>
+  <td>07-09-2026</td><td>maandag</td>
+  <td>Nel van Gom (tot 08:45)<br><span class="factuur">197798-0119</span></td>
+  <td class="na">buiten bereik</td>
+  <td class="na">buiten bereik</td>
+  <td class="na">buiten bereik</td>
+</tr>
+
+</tbody>
+</table>
+
+<div class="legend">
+  <p><span class="red">■ Rood</span> = probleemgeval: óf hetzelfde blok wordt op twee facturen tegelijk gefactureerd (dubbel, meer dan 1 uur overlap), óf er is doordeweeks een factuur ingediend voor het blok 08:45–12:00 (dat blok hoort onbetaald te blijven ter compensatie van het hogere PGB-tarief).</p>
+  <p><span class="handover">■ Geel/oranje (handover)</span> = overlap van 1–2 uur tussen twee zorgverleners bij wissel van dienst — dit is normaal inwerken, geen fout. Gemarkeerd met *.</p>
+  <p><span class="pgb">(PGB)</span> = de factuur zelf vermeldt PGB, hetzij in de cliëntnaam ("Dhr. A. Jansen (PGB)") hetzij in de omschrijving ("PGB blokzorg").</p>
+  <p><span class="gap">Cursief grijs</span> = voor dit blok is geen enkele factuur gevonden in de aangeleverde set — mogelijk ontbreekt er nog een factuur.</p>
+  <p>Weekend-blokken (za/zo) hebben een blauwige achtergrond ter onderscheid — daar geldt de 08:45–12:00 uitzondering niet, dus lege of doorlopende blokken zijn normaal.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Thuiszorg Dhr. A. Jansen — Factuurstatus</title>
+<style>
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 24px;
+  }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 15px; color: #cccccc; font-weight: normal; margin-top: 4px; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 16px;
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid #444444;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { color: #ffffff; }
+  .grp-hermes { background-color: #808080; color: #ffffff; text-align: center; }
+  .grp-duco { background-color: #6a1b9a; color: #ffffff; text-align: center; }
+  .grp-status { background-color: #000000; color: #ffffff; text-align: center; }
+  #status th.sub { background-color: #bdbdbd; color: #000000; }
+  #status td.info { background-color: #111111; }
+  td.green { background-color: #2e8b3d; color: #ffffff; text-align: center; }
+  td.red { background-color: #c0392b; color: #ffffff; text-align: center; }
+  td.blue { background-color: #1f6feb; color: #ffffff; text-align: center; }
+  td.blank { background-color: #1a1a1a; }
+  td.pgb-yes { background-color: #144a6b; color: #7fd1ff; font-weight: bold; text-align: center; }
+  td.pgb-no { background-color: #1a1a1a; color: #666666; text-align: center; }
+  .status-red { color: #ff6b6b; font-weight: bold; }
+  .status-orange { color: #ffb84d; font-weight: bold; }
+  .status-green { color: #8fdb8f; }
+
+  .legend {
+    margin-top: 20px;
+    padding: 12px 16px;
+    border: 1px solid #444444;
+    background-color: #111111;
+    max-width: 900px;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Thuiszorg Dhr. A. Jansen — Factuurstatus</h1>
+<h2>Status van de facturen</h2>
+
+<table id="status">
+<thead>
+<tr>
+  <th></th><th></th><th></th><th></th>
+  <th class="grp-hermes" colspan="2">HERMES (AI)</th>
+  <th class="grp-duco" colspan="3">DUCO</th>
+  <th class="grp-status">Status</th>
+</tr>
+<tr>
+  <th class="sub">Datum factuur</th>
+  <th class="sub">Organisatie</th>
+  <th class="sub">Factuurnummer</th>
+  <th class="sub">PGB</th>
+  <th class="sub">Ingeboekt</th>
+  <th class="sub">Automatische controle</th>
+  <th class="sub">Handmatige check</th>
+  <th class="sub">Betaling gepland</th>
+  <th class="sub">Betaald of ingediend PGB</th>
+  <th class="sub">Opmerkingen</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td class="info">25-08-2026</td><td class="info">Nelly Care</td><td class="info">197798-0116</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="green">✓</td><td class="green">✓</td>
+  <td class="green">02-09-2026</td>
+  <td class="info"><span class="status-green">Betaald 02-09-2026</span></td>
+</tr>
+
+<tr>
+  <td class="info">25-08-2026</td><td class="info">MQCare</td><td class="info">198358-0042</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="green">✓</td><td class="green">✓</td>
+  <td class="green">02-09-2026</td>
+  <td class="info"><span class="status-green">Betaald 02-09-2026</span></td>
+</tr>
+
+<tr>
+  <td class="info">25-08-2026</td><td class="info">Z-EEF</td><td class="info">198676-0014-11</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="green">✓</td><td class="green">✓</td>
+  <td class="green">03-09-2026</td>
+  <td class="info"><span class="status-green">Betaald 03-09-2026</span></td>
+</tr>
+
+<tr>
+  <td class="info">01-09-2026</td><td class="info">Nelly Care</td><td class="info">197798-0118</td>
+  <td class="pgb-yes">PGB</td>  <td class="green">✓</td><td class="green">✓</td><td class="green">✓</td><td class="blue">●</td><td class="blank"></td>
+  <td class="info"><span class="status-orange">Factuur is terugbetaald - nu in te dienen bij PGB</span></td>
+</tr>
+
+<tr>
+  <td class="info">01-09-2026</td><td class="info">S.J. Krind Thuiszorg</td><td class="info">198173-0001</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="green">✓</td><td class="green">✓</td>
+  <td class="green">02-09-2026</td>
+  <td class="info"><span class="status-green">Betaald 02-09-2026</span></td>
+</tr>
+
+<tr>
+  <td class="info">01-09-2026</td><td class="info">S.J. Krind Thuiszorg</td><td class="info">198173-0002</td>
+  <td class="pgb-yes">PGB</td>  <td class="green">✓</td><td class="green">✓</td><td class="green">✓</td><td class="blue">●</td><td class="blank"></td>
+  <td class="info"><span class="status-orange">Factuur is terugbetaald - nu in te dienen bij PGB</span></td>
+</tr>
+
+<tr>
+  <td class="info">01-09-2026</td><td class="info">MQCare</td><td class="info">198358-0043</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="green">✓</td><td class="green">✓</td>
+  <td class="green">03-09-2026</td>
+  <td class="info"><span class="status-green">Betaald 03-09-2026</span></td>
+</tr>
+
+<tr>
+  <td class="info">01-09-2026</td><td class="info">MQCare</td><td class="info">198358-0044</td>
+  <td class="pgb-yes">PGB</td>  <td class="green">✓</td><td class="green">✓</td><td class="blue">●</td><td class="blank"></td><td class="blank"></td>
+  <td class="info"></td>
+</tr>
+
+<tr>
+  <td class="info">01-09-2026</td><td class="info">Z-EEF</td><td class="info">198676-0014-12</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="red">✗</td><td class="blank"></td><td class="blank"></td><td class="blank"></td>
+  <td class="info"><span class="status-red">Dubbeling gevonden (13-08 &amp; 24-08) + facturatie in verboden blok 08:45–12:00 (14-08 &amp; 28-08)</span><br><span class="status-orange">Issue gevraagd aan Tiade — controle door Duco nodig</span></td>
+</tr>
+
+<tr>
+  <td class="info">01-09-2026</td><td class="info">Z-EEF</td><td class="info">198676-0015</td>
+  <td class="pgb-yes">PGB</td>  <td class="green">✓</td><td class="red">✗</td><td class="blank"></td><td class="blank"></td><td class="blank"></td>
+  <td class="info"><span class="status-red">Dubbeling gevonden (13-08 &amp; 24-08) — controle door Duco nodig</span></td>
+</tr>
+
+<tr>
+  <td class="info">01-09-2026</td><td class="info">HildaMeerZorg</td><td class="info">236534-0100</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="green">✓</td><td class="green">✓</td>
+  <td class="green">03-09-2026</td>
+  <td class="info"><span class="status-green">Betaald 03-09-2026</span></td>
+</tr>
+
+<tr>
+  <td class="info">01-09-2026</td><td class="info">HildaMeerZorg</td><td class="info">236534-0101</td>
+  <td class="pgb-yes">PGB</td>  <td class="green">✓</td><td class="green">✓</td><td class="blue">●</td><td class="blank"></td><td class="blank"></td>
+  <td class="info"></td>
+</tr>
+
+<tr>
+  <td class="info">02-09-2026</td><td class="info">Tiade</td><td class="info">196736-30273</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="green">✓</td><td class="green">✓</td>
+  <td class="green">02-09-2026</td>
+  <td class="info"><span class="status-green">Betaald 02-09-2026</span></td>
+</tr>
+
+<tr>
+  <td class="info">07-09-2026</td><td class="info">Nelly Care</td><td class="info">197798-0119</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="blue">●</td><td class="blank"></td><td class="blank"></td>
+  <td class="info"></td>
+</tr>
+
+<tr>
+  <td class="info">07-09-2026</td><td class="info">MQCare</td><td class="info">198358-0045</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="blue">●</td><td class="blank"></td><td class="blank"></td>
+  <td class="info"></td>
+</tr>
+
+<tr>
+  <td class="info">07-09-2026</td><td class="info">Carry D Zorgservice</td><td class="info">198431-0041</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="blue">●</td><td class="blank"></td><td class="blank"></td>
+  <td class="info"></td>
+</tr>
+
+<tr>
+  <td class="info">07-09-2026</td><td class="info">Z-EEF</td><td class="info">198676-0016</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="blue">●</td><td class="blank"></td><td class="blank"></td>
+  <td class="info"></td>
+</tr>
+
+<tr>
+  <td class="info">09-09-2026</td><td class="info">Tiade</td><td class="info">196736-30354</td>
+  <td class="pgb-no">—</td>  <td class="green">✓</td><td class="green">✓</td><td class="blue">●</td><td class="blank"></td><td class="blank"></td>
+  <td class="info"></td>
+</tr>
+
+</tbody>
+</table>
+
+<div class="legend">
+  <p><strong>Ingeboekt</strong> (HERMES, groen) = de factuur is bij Hermes bekend en verwerkt.</p>
+  <p><strong>Automatische controle</strong> (HERMES) = <span class="status-green">groen</span> als er bij de blok-controle (dubbelingen, PGB-tijdslot, facturatie tussen 08:45–12:00) geen probleem gevonden is; <span class="status-red">rood</span> als dat wel zo is.</p>
+  <p><span class="status-blue" style="color:#1f6feb; font-weight:bold;">● Blauw</span> = dit is de stap waar de factuur op dit moment staat te wachten — de vervolgstappen zijn nog niet ingevuld.</p>
+  <p><strong>Handmatige check / Betaling gepland / Betaald of ingediend PGB</strong> (DUCO) = wordt groen zodra Duco die stap heeft afgerond. Bij "Betaald of ingediend PGB" staat de betaaldatum, gebaseerd op het aangeleverde overzicht.</p>
+  <p>Facturen met een rode automatische controle hebben geen blauwe vervolgstap gekregen — daar is eerst een oplossing nodig voordat het proces verder kan.</p>
+</div>
+
+</body>
+</html>
